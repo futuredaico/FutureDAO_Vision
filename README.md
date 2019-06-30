@@ -1,0 +1,2 @@
+# vision
+Vision of FutureDAO
