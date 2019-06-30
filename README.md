@@ -8,7 +8,6 @@
 
 1.2.     初创公司融资成本阻碍创意与文化繁荣
 
-  
 1.3.     传统互联网股权众筹的问题
 
   
@@ -107,24 +106,33 @@ CO主要通过双曲线债券曲线机制实现为组织持续筹款，投资人
 CO使用2种不同函数的债券曲线，一种用于买入曲线，另一种用于卖出曲线：**B**（对于**buy**）和**S**（对于**sell）存在**![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/2.png)。![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/3.png)
 
 **投资者- buy（）**
+
 对于投资者，他们通过调用*DAT*的buy()功能来做到这一点。每当“外部”投资者（而不是组织本身）向*DAT*发送资金时，发送的一小部分资金将由*DAT*保留在“回购”储备中，其余资金将转移到组织的钱包。调用buy()时，I百分比比例的资金会保存到回购准备金中。I是一个常数。
 ![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/4.png)
 
 *投资发生时的资金流*
 
 ![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/5.png)
+
 *投资发生时对DAT债券曲线合约的影响*
+
 当投资者购买代币时，他们希望投资于底层组织。投资者不希望他们的钱被*DAT*保留，他们希望他们的钱能够被组织好好利用。因此，*s*的值必须比*b*低一个数量级。
 *示例*：假设投资者向*DAT*发送10 ETH ，如果I = 10％，则*DAT*将9 ETH转移到组织的钱包，并将在其“回购”储备中保留1 ETH。
+
 当投资者以成本c购买*FAIR时*，他会收到x *FAIR*，x等于：
 ![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/6.png)
+
 其中，c是用来购买FAIR的金额，b是卖出斜率，而a是*交易前*已经在流通的FAIR数量。
 
 **投资者-sell():**
+
 投资者可以随时决定出售他们的FAIR以获得ETH。他们通过调用*DAT*的sell()功能来做到这一点。当*DAT*收到*FAIR时*，它会销毁收到的*FAIR*并根据功能**S**（对于**s**ell）将ETH发送回卖出的投资者。S有一个斜率s,会随着DAT收到付款而增加。发回给投资者ETH是取自*DAT* “回购”储备，并**不会**影响到公司的现金储备。
 ![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/7.png)
+
 *发生FAIR卖出时的资金流：*
+
 ![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/8.png)
+
 *当投资者出售其代币时对DAT的债券曲线合约的影响。*
 
 **微积分:**
