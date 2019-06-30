@@ -27,7 +27,7 @@ ICO被禁止后，2019年，IEO成为一种新的代币融资发行机制，通�
 **算法模型**：
 
 债券曲线可以有多种计算模型，例如直线型、指数型、倒数型，我们以最简单的直线型债券曲线为例，x轴表示代币发行的数量Q，y轴表示价格，价格可以用y=x来表示。在Q(0)点买入Q(1)-Q(0)数量的代币，所要花费的资金总额是A区域面积。
-![图片](https://uploader.shimo.im/f/bra4N7fNlMcNbSbQ.png!thumbnail)
+![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/%E5%9B%BE%E7%89%87%201.png)
  
  
 
@@ -39,30 +39,32 @@ ICO被禁止后，2019年，IEO成为一种新的代币融资发行机制，通�
 2018年，thibauld建立持续性组织（Continuous Organization,CO），一个持续性组织是一个发行称为FAIR的完全数字化的证券，而其部分或全部现金流会流入一个分散式自治信托（*Decentralized Autonomous Trust，* *DAT*)，一个DAT是一个利用债券曲线自动挖矿、销毁和分发FAIR证券的合约。
 CO主要通过双曲线债券曲线机制实现为组织持续筹款，投资人不拥有组织，组织自行决定所筹资金用途。
 ### 2.4.     CO双曲线融资模型
-CO使用2种不同函数的债券曲线，一种用于买入曲线，另一种用于卖出曲线：**B**（对于**buy**）和**S**（对于**sell）存在**![图片](https://uploader.shimo.im/f/PIZDriDyUZIq83rH.png!thumbnail)。![图片](https://uploader.shimo.im/f/DwgL1o5bMdIXvWh7.png!thumbnail)
+CO使用2种不同函数的债券曲线，一种用于买入曲线，另一种用于卖出曲线：**B**（对于**buy**）和**S**（对于**sell）存在**![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/2.png)。![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/3.png)
 
-** 投资者- buy（）**
+**投资者- buy（）**
 对于投资者，他们通过调用*DAT*的buy()功能来做到这一点。每当“外部”投资者（而不是组织本身）向*DAT*发送资金时，发送的一小部分资金将由*DAT*保留在“回购”储备中，其余资金将转移到组织的钱包。调用buy()时，I百分比比例的资金会保存到回购准备金中。I是一个常数。
-![图片](https://uploader.shimo.im/f/rvx4mQlbMEYrz9KB.png!thumbnail)
+![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/4.png)
+
 *投资发生时的资金流*
-![图片](https://uploader.shimo.im/f/MdEGvxdhsOAPSh4C.png!thumbnail)
+
+![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/5.png)
 *投资发生时对DAT债券曲线合约的影响*
 当投资者购买代币时，他们希望投资于底层组织。投资者不希望他们的钱被*DAT*保留，他们希望他们的钱能够被组织好好利用。因此，*s*的值必须比*b*低一个数量级。
 *示例*：假设投资者向*DAT*发送10 ETH ，如果I = 10％，则*DAT*将9 ETH转移到组织的钱包，并将在其“回购”储备中保留1 ETH。
 当投资者以成本c购买*FAIR时*，他会收到x *FAIR*，x等于：
-![图片](https://uploader.shimo.im/f/QAmjoje11TI8C4n2.png!thumbnail)
+![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/6.png)
 其中，c是用来购买FAIR的金额，b是卖出斜率，而a是*交易前*已经在流通的FAIR数量。
 
 **投资者-sell():**
 投资者可以随时决定出售他们的FAIR以获得ETH。他们通过调用*DAT*的sell()功能来做到这一点。当*DAT*收到*FAIR时*，它会销毁收到的*FAIR*并根据功能**S**（对于**s**ell）将ETH发送回卖出的投资者。S有一个斜率s,会随着DAT收到付款而增加。发回给投资者ETH是取自*DAT* “回购”储备，并**不会**影响到公司的现金储备。
-![图片](https://uploader.shimo.im/f/t71lPL4OeJcmHXju.png!thumbnail)
+![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/7.png)
 *发生FAIR卖出时的资金流：*
-![图片](https://uploader.shimo.im/f/Vh8dhBbdFzEDyb65.png!thumbnail)
+![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/8.png)
 *当投资者出售其代币时对DAT的债券曲线合约的影响。*
 
 **微积分:**
 当投资者出售x *FAIR时*，假设之前没有*FAIR*被烧毁，他会收到一笔金额c，c等于：
-![图片](https://uploader.shimo.im/f/QGGKnhtFRPo1BVt3.png!thumbnail)
+![图片](https://github.com/futuredaico/vision/blob/master/fdpicture/9.png)
 
 s是卖出曲线的斜率，a是FAIR交易前的流通数量。
 完整的算法及证明请参考[这里](https://github.com/C-ORG/whitepaper)。
